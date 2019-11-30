@@ -1,15 +1,34 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+
 class ResultCep {
   String cep;
+  TextEditingController cepController = TextEditingController();
+
   String logradouro;
+  TextEditingController logadouroController = TextEditingController();
+
   String complemento;
+  TextEditingController complementoController = TextEditingController();
+
   String bairro;
+  TextEditingController bairroController = TextEditingController();
+
   String localidade;
+  TextEditingController localidadeController = TextEditingController();
+
   String uf;
+  TextEditingController ufController = TextEditingController();
+
   String unidade;
+  TextEditingController unidadeController = TextEditingController();
+
   String ibge;
+  TextEditingController ibgeController = TextEditingController();
+  
   String gia;
+  TextEditingController giaController = TextEditingController();
 
   ResultCep({
     this.cep,
@@ -20,7 +39,7 @@ class ResultCep {
     this.uf,
     this.unidade,
     this.ibge,
-    this.gia,
+    this.gia
   });
 
   factory ResultCep.fromJson(String str) => ResultCep.fromMap(json.decode(str));
@@ -50,4 +69,18 @@ class ResultCep {
         "ibge": ibge == null ? null : ibge,
         "gia": gia == null ? null : gia,
       };
+
+    void updateControllers(){
+      
+      cepController.text = cep;
+      logadouroController.text = logradouro;
+      complementoController.text = complemento;
+      bairroController.text = bairro;
+      localidadeController.text = localidade;
+      ufController.text = uf;
+      unidadeController.text = unidade;
+      ibgeController.text = ibge;
+      giaController.text = gia;
+
+    }
 }
